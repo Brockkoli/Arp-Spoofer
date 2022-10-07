@@ -10,3 +10,5 @@ sudo apt install python3-scapy
 
 echo "Installing pyfiglet..."
 sudo apt install python3-pyfiglet
+
+echo "Installation completed"
