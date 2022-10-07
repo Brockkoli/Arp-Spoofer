@@ -3,4 +3,4 @@
 
 Usage: 
 
-$ python3 arpspf.py <<target IP>> <<gateway IP>>
+$ python3 arpspf.py target-IP gateway-IP
