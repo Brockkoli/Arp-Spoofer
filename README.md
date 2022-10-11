@@ -1,4 +1,3 @@
-# ARP Spoofer
 # ICT 2203 Assignment 1
 
 ## ARP Spoofer
