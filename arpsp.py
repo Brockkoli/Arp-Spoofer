@@ -53,11 +53,8 @@ def attack():
         reset(gateway_ip, target_ip)
         reset(target_ip, gateway_ip)
         print("\n[+] ARP tables have been reset.")
-<<<<<<< HEAD
         print("\n[+] Arp Spoof Stopped\n")
-=======
         print("\n[+] Arp Spoof Stopped")
->>>>>>> 242ef8bfebd2716c3c0e0dab6203b324189b1632
         bye = pyfiglet.figlet_format("P2 Group 13", font = "digital" )
         print(bye)
 
