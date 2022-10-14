@@ -75,7 +75,7 @@ if __name__ == '__main__':
     try:
         fakewebDict = {
             b"notepad-plus-plus.org": evilhost_ip,
-            b"xsite.singaporetech.edu.sg": evilhost_ip
+            b"in4sit.singaporetech.edu.sg": evilhost_ip
         }
         queueCount = 1
         log.basicConfig(format='%(asctime)s - %(message)s',
