@@ -80,8 +80,8 @@ if __name__ == '__main__':
         queueCount = 1
         log.basicConfig(format='%(asctime)s - %(message)s',
                         level = log.INFO)
-        snoof = DnsSpoof(fakewebDict, queueCount)
-        snoof()
+        spoof = DnsSpoof(fakewebDict, queueCount)
+        spoof()
     except OSError as error:
         log.error(error)
         print("Error has been logged.")
